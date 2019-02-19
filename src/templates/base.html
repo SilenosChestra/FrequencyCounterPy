@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}{% endblock %}
+    <script type="text/javascript" src="/static/js/sortTable.js"></script>
+    <link rel="stylesheet" type="text/css" media="all" href="https://corpus.by/_css/style.css"/>
+</head>
+<body>
+
+<div class="container theme-showcase" role="main">
+    <div class="global">
+    {% include "headTemplate.html" %}
+    {% block content %}{% endblock %}
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+lang
+Language
+
+title
+Service Demonstrator
+
+help
+http://ssrlab.by/en/5208
+
+input
+Please, enter a text
+
+default input
+Груша цвіла апошні год.\nУсе галіны яе, усе вялікія расохі, да апошняга пруціка, былі ўсыпаны буйным бела-ружовым цветам. Яна кіпела, млела і раскашавалася ў пчаліным звоне, цягнула да сонца сталыя лапы і распускала ў яго ззянні маленькія, кволыя пальцы новых парасткаў. І была яна такая магутная і свежая, так утрапёна спрачаліся ў яе ружовым раі пчолы, што, здавалася, не будзе ёй зводу і не будзе ёй канца.
+
+checkboxes
+Select checkboxes:
+
+checkbox1
+checkbox #1
+
+checkbox2
+checkbox #2
+
+checkbox3
+checkbox #3
+
+checkbox1 comment
+(you can input a comment here)
+
+checkbox2 comment
+(you can input a comment here)
+
+checkbox3 comment
+(you can input a comment here)
+
+radiobuttons
+Select radiobutton:
+
+radiobutton1
+radiobutton #1
+
+radiobutton2
+radiobutton #2
+
+radiobutton3
+radiobutton #3
+
+radiobutton4
+radiobutton #4
+
+radiobutton5
+radiobutton #5
+
+radiobutton1 comment
+(you can input a comment here)
+
+radiobutton2 comment
+(you can input a comment here)
+
+radiobutton3 comment
+(you can input a comment here)
+
+options
+Select option:
+
+option1
+option #1
+
+option2
+option #2
+
+option3
+option #3
+
+option4
+option #4
+
+button
+Show input text and selected settings!
+
+results
+Results
+
+inp
+Input
+
+selector
+Option
+
+radio
+Radiobutton
+
+checkbox
+Checkbox
+
+entered text
+User has entered the following text:
+
+selected settings
+User has selected the following settings:
+
+user select
+User has selected
+
+service code
+Service source code for new services can be downloaded
+
+reference
+here
+
+contact e-mail
+We would be glad to receive your feedback and suggestions via e-mail
+
+other prototypes
+Our other prototypes:
+
+mirror
+(mirror with extensions)
+
+laboratory
+Speech synthesis and recognition laboratory, UIIP NAS Belarus

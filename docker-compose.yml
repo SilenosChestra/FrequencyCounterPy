@@ -1,0 +1,38 @@
+version: "3"
+
+services: 
+  frequencypy:
+    image: "${CONTAINER_IMAGE}:${TAG}"
+    container_name: frequencycounterpy
+    ports:
+      - 5005:5000
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+
+
+
+
+# version: '2'
+# services:
+#   nginx:
+#     image: nginx:latest
+#     container_name: corpus_ng01
+#     ports:
+#       - "8090:80"
+#     volumes:
+#       - ./config/nginx:/etc/nginx/conf.d
+#     depends_on:
+#       - service-demonstrator-py
+#     restart: always
+#   service-demonstrator-py:
+#     image: service-demonstrator-py
+#     build: .
+#     container_name: sd01
+#     ports:
+#       - 5000:5000
+#     restart: always
