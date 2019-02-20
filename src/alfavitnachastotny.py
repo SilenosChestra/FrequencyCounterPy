@@ -30,7 +30,7 @@ def tocount(s, not_begin):
 
 
 
-def context(s, num):
+def context(s, num=3):
 
     s = s.replace('\r\n', ' ')
     s = s.replace('? ', ' ?')

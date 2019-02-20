@@ -4,11 +4,9 @@ import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, abort, jsonify
 import settings
 from corpus_localization import localization
-from flask_cors import CORS, cross_origin
 from alfavitnachastotny import context, commonize
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 def tocount(s, not_begin, stop_words, symbols):
     import re
@@ -58,9 +56,11 @@ def ServiceDemonstrator():
 апошні
 год"""
     ln1,ln2 = int(),int()
-    contextnum = int()
+    contextnum = 3
     words_to_count = ""
-    case_sensitive = 1
+    case_sensitive = 'on'
+    context_sensitive = 'on'
+    contexts_max = 2
     
 
     if request.method == "POST":
@@ -69,11 +69,11 @@ def ServiceDemonstrator():
         _input = request.form.get("inputText")
         _notbegin = request.form.get('symbols_in_words')
         symbols = request.form.get('symbols_of_words')
-        contextnum = request.form.get('contextsMax')
         stop_words = request.form.get('stop_words')
         words_to_count = request.form.get('words_to_count')
         case_sensitive = request.form.get('caseSensitive')
-        print(case_sensitive)
+        context_sensitive = request.form.get('contextSensitive')
+        contexts_max = request.form.get('contextsMax')
 
         text = ''
 
@@ -98,7 +98,8 @@ def ServiceDemonstrator():
                     sp.append(sp_copy[i])
 
     return render_template('index.html', is_post=is_post,_input=_input, lang=lang, notbegin=_notbegin,sp=sp, stop_words=stop_words,
-                           ln1=ln1, ln2=ln2, contextnum=contextnum, symbols=symbols, words_to_count=words_to_count, case_sensitive=case_sensitive)
+                           ln1=ln1, ln2=ln2, contextnum=contextnum, symbols=symbols, words_to_count=words_to_count,
+                           case_sensitive=case_sensitive, context_sensitive=context_sensitive,contexts_max=contexts_max)
 
 
 

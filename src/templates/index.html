@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
-<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css' />
 
 <form method="post">
 
@@ -29,10 +28,10 @@
 		</tr>
 
 		<tr>
-			<td width="60%" colspan=3 valign="top">
+			<td colspan=3 width="25%" valign="top">
 				<textarea id="input_text_id" name="inputText" class="main-textarea">{{ _input }}</textarea>
 			</td>
-			<td width="40%" colspan=3>
+			<td width="30%" colspan=3>
 				<textarea id="stop_words_id" name="stop_words" class="main-textarea">{{ stop_words }}</textarea>
 
 			</td>
@@ -48,7 +47,7 @@
 						<td width="30%" valign="top">
 							<h2 class="sub-caption-smaller">Сімвалы,<br />з якіх можа складацца слова:</h2>
 						</td>
-						<td width="65%" valign="top">
+						<td width="55%" valign="top">
 							<textarea id="symbols_of_words_id" name="symbols_of_words" class="main-textarea-gpr">{{ symbols }}</textarea>
 						</td>
 						<td width="5%" valign="top" align="right">
@@ -104,7 +103,7 @@
 							<h4 class="sub-caption-smaller">Колькасць кантэкстаў:</h4>
 						</td>
 						<td width="70%" valign="top" align='left' colspan=2>
-							<input type="text" name="contextsMax" size="4" maxlength="4" value=2>
+							<input type="text" name="contextsMax" size="4" maxlength="4" value={{contexts_max}}>
 						</td>
 					</tr>
 			</tbody>
@@ -116,9 +115,9 @@
 					<tbody>
 					<tr>
 						<td width="70%">
-							<label><input type="checkbox" name="caseSensitive" {% if request.form.get('caseSensitive') %}checked{% endif %}>Адчувальны да рэгістру</label>
+							<label><input type="checkbox" name="caseSensitive" {%if case_sensitive %}checked{% endif %}>Адчувальны да рэгістру</label>
 							<br>
-							<label><input type="checkbox" name="contextSensitive" {% if request.form.get('contextSensitive') %}checked{% endif %}>Выводзіць асобна левыя і правыя кантэксты</label>
+							<label><input type="checkbox" name="contextSensitive" {%if context_sensitive %}checked{% endif %}>Выводзіць асобна левыя і правыя кантэксты</label>
 
 						</td>
 						<td width="30%" align="center" valign="bottom">
@@ -131,12 +130,12 @@
 			</table>
 
 
+
 </form>
-
 <br><br>
-
-
-
+{% if is_post %}
+Усяго знойдзена слоў у тэксце: <b>{{ ln1 }}</b><br>
+Па Вашым запыце знойдзена ўнікальных слоў: <b>{{ ln2 }}</b><br>
 
 {% if request.form.get("contextSensitive") %}
 <table width="100%" class="sort">
@@ -237,5 +236,5 @@
 		{% endif %}
 
 		</tr></table>
-		{% endblock %}
-</div>
+		{% endif %}
+{% endblock %}
