@@ -16,6 +16,10 @@ body{
 
 a{ color: #0066ff;}
 
+а:link {
+    text-decoration: none; /* Убирает подчеркивание для ссылок */
+   }
+
 textarea, select, input[type="text"]{
     font: normal 16px Calibri, Tahoma, Verdana, Arial, sans-serif;
     color: black;
@@ -590,3 +594,7 @@ color: #fff !important;
 	margin-right: 20px;
 	padding: 10px 0;
 }
+
+а:link {
+    text-decoration: none; /* Убирает подчеркивание для ссылок */
+   }

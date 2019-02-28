@@ -12,7 +12,7 @@ def tocount(s, not_begin, stop_words, symbols):
     import re
 
 
-    s = re.sub(r'[?!,.]', '', s)
+    s = re.sub(r'[()?!,.]', '', s)
 
     s = s.replace('\r\n',' ')
     s = s.strip()
@@ -46,6 +46,7 @@ def ServiceDemonstrator():
     lang = localization.load_localization(localization.get_language_code(request))
 
     _input = lang['default input'].replace('\\n', '\n')
+    def_input = lang['default input'].replace('\\n', '\n')
     is_post = False
     sp = []
     _notbegin = """-'’ʼ"""
@@ -67,6 +68,7 @@ def ServiceDemonstrator():
         is_post = True
 
         _input = request.form.get("inputText")
+        def_input = 3
         _notbegin = request.form.get('symbols_in_words')
         symbols = request.form.get('symbols_of_words')
         stop_words = request.form.get('stop_words')
@@ -99,7 +101,8 @@ def ServiceDemonstrator():
 
     return render_template('index.html', is_post=is_post,_input=_input, lang=lang, notbegin=_notbegin,sp=sp, stop_words=stop_words,
                            ln1=ln1, ln2=ln2, contextnum=contextnum, symbols=symbols, words_to_count=words_to_count,
-                           case_sensitive=case_sensitive, context_sensitive=context_sensitive,contexts_max=contexts_max)
+                           case_sensitive=case_sensitive, context_sensitive=context_sensitive,contexts_max=contexts_max,
+                           def_input=def_input)
 
 
 

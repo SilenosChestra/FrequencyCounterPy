@@ -1,7 +1,8 @@
 import re
 def tocount(s, not_begin):
     import re
-    s = re.sub(r'[?!,.]', '', s)
+
+    s = re.sub(r'[()?!,.]', '', s)
     s = s.replace('\r\n',' ')
     s = s.strip()
     l1 = len(s.split(' '))
@@ -32,15 +33,18 @@ def tocount(s, not_begin):
 
 def context(s, num=3):
 
+
+    # print(n,len(n))
     s = s.replace('\r\n', ' ')
     s = s.replace('? ', ' ?')
     s = s.replace('! ', ' !')
     s = s.replace('. ', ' .')
     s = s.replace(', ', ' ,')
-    # s = s.replace('(','')
-    # s = s.replace(')','')
-    # s = s.replace(': ', ' :')
+    s = s.replace(': ', ' :')
+
     s = s.split(' ')
+    # n = s.split(' ')
+    # print(s,len(s))
     n = s.copy()
 
 
@@ -50,7 +54,7 @@ def context(s, num=3):
 
     for i in range(len(s)):
 
-        s[i] = re.sub(r'[,?.!]', '', s[i])
+        s[i] = re.sub(r'[(),?.!:]', '', s[i])
 
        # print('\n')
 
@@ -83,13 +87,13 @@ def context(s, num=3):
 
             k = 1
             while k <= num:
-                # print(s[i + k], end=' ')
+
                 context_item += n[i + k] + ' '
                 k += 1
         else:
             ind = 1
             while i + ind <= len(s) - 1:
-                # print(s[i+ind])
+
                 context_item += n[i + ind] + ' '
                 ind += 1
 
@@ -108,9 +112,8 @@ def context(s, num=3):
     return d_2
 
 
-result, l1, l2 = tocount('Груша вось цвіла, апошні год, сябры, вось так!','')
-# print(result)
-# print(context("Груша вось цвіла, апошні год, сябры, вось так!",3))
+result, l1, l2 = tocount('Груша вось: (Чехія) цвіла, апошні год, сябры, вось так!','')
+# print(context("Груша вось (Чехія) цвіла, апошні год, сябры, вось так!",3))
 
 def commonize(a,b):
     sp = []
@@ -136,6 +139,6 @@ def commonize(a,b):
 
 
 
-# print(commonize(result,context('Груша вось цвіла, апошні год, сябры, вось так!',3)))
+print(context('Груша вось (Чехія) цвіла, апошні год, сябры, вось так!!',3))
 
 
